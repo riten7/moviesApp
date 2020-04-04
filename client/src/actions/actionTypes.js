@@ -1,0 +1,9 @@
+export const FETCH_START = 'FETCH_START';
+export const FETCH_MOVIES = 'FETCH_MOVIES';
+export const GET_MOVIE_DETAIL = 'GET_MOVIE_DETAIL';
+export const CLEAR_MOVIES = 'CLEAR_MOVIES';
+export const SHOW_ALL  = 'SHOW_ALL';
+export const SEARCH_FILTER = 'SEARCH_FILTER';
+export const ADD_MOVIE = 'ADD_MOVIE';
+export const DELETE_MOVIE = 'DELETE_MOVIE';
+export const POPUP_SHOWN = 'POPUP_SHOWN';

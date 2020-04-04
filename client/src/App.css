@@ -1,0 +1,71 @@
+@import '~antd/dist/antd.css';
+body {
+  font-size: 14px;
+}
+
+body {
+  font-size: 14px;
+}
+
+.App {
+  text-align: center;
+}
+
+/* movie container */
+.movieSearch {
+  background-color: #93b71c;
+  padding: 24px;
+  min-height: 80px;
+}
+
+.movieSearch .searchInput {
+  background-color: #708b16;
+  color: #f2e9e1;
+  border: 0px solid white;
+  min-height: 60px;
+  cursor: pointer;
+}
+
+.movieSearch .addMovieBtn,
+.movieDetail .editMovieBtn,
+.movieDetail .deleteMovieBtn {
+  background-color: #708b16;
+  color: #f2e9e1;
+  border: 0px solid white;
+  border-radius: 0.5em;
+  min-height: 60px;
+  margin: 0 12px;
+}
+
+.gutter-row {
+  padding: 12px;
+}
+
+.movieCard img{
+  display: block;
+  width: 100%;
+}
+
+.card-body {
+  padding: 10px 16px;
+}
+
+.card-body p {
+  color: #999;
+}
+
+.ant-card-body {
+  padding: 10px;
+  background-color: #708a14;
+  text-align: center;
+}
+
+.ant-card-body .ant-card-meta-title,
+.ant-card-body .ant-card-meta-description {
+    color: #f2e9e1;
+}
+
+.movieDetail {
+  background-color: #6c9a56;
+  margin: 10px;
+}
