@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from './react-redux-hooks';
 import { Col, Row, Rate, Button, Spin } from 'antd';
 import Popup from './Popup';
 import { showMoviePopup, deleteMovieFromList, getMovieDetailById } from '../actions/actionCreators';
@@ -11,12 +11,10 @@ const MovieDetail = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const movieDetail = useSelector(state => state.movies.data);
-  const popupShown = useSelector(state => state.popup);
-  
+  const {movieData, popupShown} = useSelector(state => state);
+  const {movies, isLoading} = movieData;
   const handlEditMovie = useCallback(() => dispatch(showMoviePopup(true)), [dispatch]);
-  const isLoading = useSelector(state => state.movies.isLoading);
-
+  
   useEffect(() => {
     dispatch(getMovieDetailById(movieId));
   }, [movieId, dispatch]);
@@ -30,22 +28,23 @@ const MovieDetail = (props) => {
     <div className="movieDetail">
       {!isLoading ?
       <Row>
-        <Col span={8} offset={1}>
-          <img alt={movieDetail.title} width='85%' src={movieDetail.poster} />
+        <Col span={8}>
+          <img alt={movies.title} width='85%' src={movies.poster} />
         </Col>
-        <Col span={12} offset={1}>
-          <h1>{movieDetail.title}</h1>
+        <Col span={12}>
+          <h1>{movies.title}</h1>
           <hr />
           <strong> Type: </strong>
-          <p>{movieDetail.type}</p>
+          <p>{movies.type}</p>
           <hr />
           <strong> Released On: </strong>
-          <p>{movieDetail.date}</p>
+          <p>{movies.date}</p>
+          <hr />
+          <strong> Rating: </strong>
+          <Rate className='rate' value={parseInt(movies.rating)} />
           <hr />
           <strong> Description: </strong>
-          <p>{movieDetail.description}</p>
-          <hr />
-          <Rate className='rate' value={parseInt(movieDetail.rating)} />
+          <p>{movies.description}</p>
           <hr />
           <div className="actions-movie">
             <Button className="editMovieBtn" onClick={handlEditMovie}>Edit</Button>
@@ -53,7 +52,7 @@ const MovieDetail = (props) => {
           </div>
         </Col>
       </Row> : <Spin size="large"/>}
-      {popupShown ? <Popup movie={movieDetail} /> : null}
+      {popupShown ? <Popup movie={movies} /> : null}
     </div>
   )
 }

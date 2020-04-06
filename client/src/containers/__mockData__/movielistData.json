@@ -1,0 +1,62 @@
+{
+  "movieData": {
+    "isLoading": false,
+    "movies": [
+      {
+        "_id": "5e8070706eb3ec0e2f36712b",
+        "title": "Test Case Url Update",
+        "type": "Documentary",
+        "rating": 3,
+        "date": "2020/03/10",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTU3NjE5NzYtYTYyNS00MDVmLWIwYjgtMmYwYWIxZDYyNzU2XkEyXkFqcGdeQXVyNzQzNzQxNzI@._V1_SY1000_SX677_AL_.jpg",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "id": "burx2s81pa"
+      },
+      {
+        "_id": "5e8072ecfdf51612e7b6db4e",
+        "title": "w ww",
+        "type": "Series",
+        "rating": 3,
+        "date": "2020/03/17",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTU3NjE5NzYtYTYyNS00MDVmLWIwYjgtMmYwYWIxZDYyNzU2XkEyXkFqcGdeQXVyNzQzNzQxNzI@._V1_SY1000_SX677_AL_.jpg",
+        "description": "qwew ghhgf jhvhvj jhjgjh bhj jghj hjghj hjghjvhgjhg hjgjh bvjhv jbhjbjhgjhghjgjhgjhghjghjgjhghjghjghjghjghjghjghjgjhgjhghjghjghjghjgjhghjghjgjhgjhghjg",
+        "id": "s5bs167dzw"
+      },
+      {
+        "_id": "5e87498c92ba36412a54559b",
+        "title": "asdasdasd",
+        "type": "Series",
+        "rating": "2",
+        "date": "2020/04/06",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTU3NjE5NzYtYTYyNS00MDVmLWIwYjgtMmYwYWIxZDYyNzU2XkEyXkFqcGdeQXVyNzQzNzQxNzI@._V1_SY1000_SX677_AL_.jpg",
+        "description": "asdasdasdasd"
+      },
+      {
+        "_id": "5e87fcdbe690750bb61813ae",
+        "title": "lajskdjaljsdklajlsd",
+        "type": "Movie",
+        "rating": "2",
+        "date": "2020/04/12",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTU3NjE5NzYtYTYyNS00MDVmLWIwYjgtMmYwYWIxZDYyNzU2XkEyXkFqcGdeQXVyNzQzNzQxNzI@._V1_SY1000_SX677_AL_.jpg",
+        "description": "asdasdasdasd",
+        "id": "7h4z6on8bfu"
+      },
+      {
+        "_id": "5e880273ba1a940d4c4bbcf9",
+        "title": "MR",
+        "type": "Series",
+        "rating": "2",
+        "date": "2020/04/07",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTU3NjE5NzYtYTYyNS00MDVmLWIwYjgtMmYwYWIxZDYyNzU2XkEyXkFqcGdeQXVyNzQzNzQxNzI@._V1_SY1000_SX677_AL_.jpg",
+        "description": "asdadasdasd",
+        "id": "77d0a8e3ksq"
+      }
+    ],
+    "hasError": false
+  },
+  "searchBy": {
+    "type": "SHOW_ALL",
+    "text": ""
+  },
+  "popupShown": true
+}

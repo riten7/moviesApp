@@ -4,17 +4,17 @@ import { showMoviePopup, addMovieToList, updateMovieInList } from '../actions/ac
 import { Modal, Form, Input, Button, Select, DatePicker } from 'antd';
 import moment from 'moment';
 
-const layout = { labelCol: { span: 6, }, wrapperCol: {span: 16, },};
-const tailLayout = { wrapperCol: { offset: 16 },};
+const layout = { labelCol: { span: 6 }, wrapperCol: {span: 16 },};
+const tailLayout = { wrapperCol: { offset: 16 }};
 
 const MoviePopup = (props) => { 
   const [form] = Form.useForm();
   const { Option } = Select;
   const { TextArea } = Input;
   const dispatch = useDispatch();
-  const moviePopupShown = useSelector(state => state.popup);
-  const isLoading = useSelector(state => state.movies.isLoading);
-
+  const {popupShown, movieData} = useSelector(state => state);
+  const {isLoading} = movieData;
+  
   const closePopup = () => (dispatch(showMoviePopup(false)));
 
   const getInitialValues = () => {
@@ -35,6 +35,7 @@ const MoviePopup = (props) => {
   };
   
   const handleSubmit = useCallback((values) => {
+    console.log('ahsg', values);
     if (!props.movie) { values.id = getMovieId(); }
     values.date = values.date.format('YYYY/MM/DD');
     props.movie ? dispatch(updateMovieInList(props.movie.id, values)) : dispatch(addMovieToList(values));
@@ -47,17 +48,19 @@ const MoviePopup = (props) => {
 
   return (
     <Modal
-      visible={moviePopupShown}
-      title='Add Movie'
+      visible={popupShown}
+      title= {props.movie ? 'Edit Movie' : 'Add Movie'}
       onCancel={closePopup}
-      footer={null}>
+      footer={null}
+      mask={true}
+      maskClosable={false}>
       <Form className="moviePopup" {...layout} form={form} initialValues={getInitialValues()} onFinish={handleSubmit}>
         <Form.Item name="title" label="Title"
-          rules={[{ required: true, },]}>
+          rules={[{ required: true }]}>
           <Input />
         </Form.Item>
         <Form.Item name="type" label="Type"
-          rules={[{ required: true, },]}>
+        rules={[{ required: true }]}>
           <Select allowClear>
             <Option value="Movie">Movie</Option>
             <Option value="Series">Series</Option>
@@ -65,7 +68,7 @@ const MoviePopup = (props) => {
           </Select>
         </Form.Item>
         <Form.Item name="rating" label="Rating"
-          rules={[{ required: true, },]}>
+          rules={[{ required: true }]}>
           <Select allowClear>
             <Option value="1">1</Option>
             <Option value="2">2</Option>
@@ -74,16 +77,16 @@ const MoviePopup = (props) => {
             <Option value="5">5</Option>
           </Select>
         </Form.Item>
-        <Form.Item name="date" label="Released on"
-          rules={[{ required: true, },]}>
+        <Form.Item id="date" name="rrrr" label="Released On"
+          rules={[{ required: true }]}>
           <DatePicker />
         </Form.Item>
         <Form.Item name="poster" label="Poster"
-          rules={[{ required: true, },]}>
+          rules={[{ required: true }]}>
           <Input />
         </Form.Item>
         <Form.Item name="description" label="Description"
-          rules={[{ required: true, },]}>
+          rules={[{ required: true }]}>
           <TextArea placeholder='Description...' autoSize />
         </Form.Item>
         <Form.Item {...tailLayout}>

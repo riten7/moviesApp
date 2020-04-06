@@ -7,3 +7,4 @@ export const SEARCH_FILTER = 'SEARCH_FILTER';
 export const ADD_MOVIE = 'ADD_MOVIE';
 export const DELETE_MOVIE = 'DELETE_MOVIE';
 export const POPUP_SHOWN = 'POPUP_SHOWN';
+export const MOVIE_ERROR = 'MOVIE_ERROR';

@@ -1,20 +1,19 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from './react-redux-hooks';
 import { Row, Spin } from 'antd';
 import { fetchMovieList, clearMovieList } from '../actions/actionCreators';
 import SearchFilter from './SearchFilter';
 import MovieListItem from './MovieListItem';
-import { SHOW_ALL, SEARCH_FILTER } from '../actions/actionTypes';
+import { getFilteredList } from './filter';
+import { FileSearchOutlined } from '@ant-design/icons';
 
 const MovieList = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(state => state.movies.isLoading);
-  const movieList = useSelector((state) => {
-    return getFilteredList(state.movies.data, state.searchBy);
-  });
+  const { movieData, searchBy } = useSelector(state => state);
+  const { movies, isLoading } = movieData;
+  const movieList = getFilteredList(movies, searchBy);
 
-
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch(fetchMovieList());
     return () => {
       dispatch(clearMovieList());
@@ -30,26 +29,12 @@ const MovieList = () => {
         <Row className="movieList">
           {movieList && movieList.length > 0 ? movieList.map(item => (
             <MovieListItem key={item._id} movie={item} />
-          )) : <div className="noMovieFound">No Movie Found</div>}
+          )) : <div className="noMovieFound"><FileSearchOutlined /><p>No Movie Found</p></div>}
         </Row>
         : <Spin size="large" />
       }
     </div>
   )
-}
-
-const getFilteredList = (movies, searchObj) => {
-  switch (searchObj.type) {
-    case SHOW_ALL:
-      return movies;
-    case SEARCH_FILTER:
-      return movies.flat().filter(item => {
-        let title = item.title.toLowerCase();
-        return title.indexOf(searchObj.text.toLowerCase()) > -1;
-      });
-    default:
-      return movies;
-  }
 }
 
 export default MovieList;

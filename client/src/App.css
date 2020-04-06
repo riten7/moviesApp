@@ -1,29 +1,77 @@
 @import '~antd/dist/antd.css';
 body {
   font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  color: #888585;
+  line-height: 24px;
 }
-
 body {
   font-size: 14px;
+  background-color: #292727;
 }
-
 .App {
   text-align: center;
 }
-
 /* movie container */
 .movieSearch {
-  background-color: #93b71c;
+  background-color: #3c3838;
   padding: 24px;
-  min-height: 80px;
+  min-height: 160px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
-
+.search-form{
+  display: flex;
+  max-width: 65%;
+  margin: 0 auto;
+  width: 100%;
+}
+.search-form .ant-col:first-child {
+  width: 100%;
+}
+.search-form .ant-col:last-child {
+  width: 150px;
+}
+.search-form .ant-col:last-child .addMovieBtn {
+  min-height: auto;
+  margin: 0;
+  background-color: #708a15;
+  font-size: 32px;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+}
+.search-form .ant-col:first-child input,
+.search-form .ant-col:last-child button{
+  border: none;
+}
+.search-form .ant-col:first-child input:focus,
+.search-form .ant-col:last-child button:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+.search-form .ant-col:first-child p{
+  text-align: left;
+  font-size: 16px;
+  color: #888585;
+  padding: 10px 0 0 20px;
+  margin: 0;
+  font-weight: 300;
+}
+.search-form .ant-col:first-child input:focus{
+  background-color: #fff;
+  color: #696565;
+}
 .movieSearch .searchInput {
-  background-color: #708b16;
+  background-color: #696565;
   color: #f2e9e1;
-  border: 0px solid white;
   min-height: 60px;
-  cursor: pointer;
+  border-radius: 30px;
+  padding: 0px 30px;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .movieSearch .addMovieBtn,
@@ -31,41 +79,90 @@ body {
 .movieDetail .deleteMovieBtn {
   background-color: #708b16;
   color: #f2e9e1;
-  border: 0px solid white;
   border-radius: 0.5em;
   min-height: 60px;
   margin: 0 12px;
 }
-
+.ant-btn {
+  margin: 2px;
+}
 .gutter-row {
   padding: 12px;
 }
-
 .movieCard img{
   display: block;
   width: 100%;
 }
-
 .card-body {
   padding: 10px 16px;
 }
-
 .card-body p {
   color: #999;
 }
-
 .ant-card-body {
   padding: 10px;
   background-color: #708a14;
   text-align: center;
 }
-
 .ant-card-body .ant-card-meta-title,
 .ant-card-body .ant-card-meta-description {
     color: #f2e9e1;
 }
-
+.movieList{
+  display: flex;
+  max-width: 82%;
+  margin: 0 auto;
+  padding: 50px 0px;
+  /* justify-content: center; */
+}
+.movieList .ant-col {
+  width: auto;
+  max-width: initial;
+}
 .movieDetail {
-  background-color: #6c9a56;
-  margin: 10px;
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.movieList .ant-card-bordered{
+  border: 5px solid #000000;
+  border-radius: 6px;
+}
+.movieList .ant-card-bordered:hover {
+  box-shadow: 0px 0px 30px rgba(0,0,0,0.9);
+  border-color: #fff;
+}
+.movieList .ant-card-body{
+  padding: 20px 10px;
+  background-color: #708a15;
+  text-align: center;
+}
+.ant-card-meta-title{
+  font-weight: 900;
+  font-size: 14px;
+}
+.ant-card-meta-title ~.ant-card-meta-description{
+  font-size: 12px;
+}
+.movieDetail .ant-row{
+  display: flex;
+  flex-flow: row wrap;
+}
+.movieDetail .ant-row .ant-col{
+  padding: 30px;
+}
+.movieDetail .ant-row .ant-col:last-child{
+  text-align: left;
+}
+.movieDetail .ant-row .ant-col:last-child h1{
+  font-weight: 900;
+  color: #708a15;
+}
+.movieDetail .ant-row .ant-col:last-child hr{
+  border: 1px solid #3c3838;
+}
+.movieDetail .ant-row .ant-col:last-child .ant-btn{
+  border: none;
+  margin-top: 20px;
+  padding: 0 30px;
 }
