@@ -1,6 +1,6 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
-import Popup from "../Popup";
+import { mount } from "enzyme";
+import Popup from "../MoviePopup";
 import configureStore from "redux-mock-store";
 import thunk from 'redux-thunk';
 import * as ReactReduxHooks from "../react-redux-hooks";
@@ -55,6 +55,5 @@ describe("Component renders properly", () => {
     wrapper.find("input[placeholder='Select date']").first().simulate('change', { target: {value: '2020-04-07' }})
     wrapper.find('.ant-btn-primary').simulate('click');
     //expect(handleSubmit).toHaveBeenCalled();
-    //console.log(wrapper.find("input[placeholder='Select date']"))
   });
 });

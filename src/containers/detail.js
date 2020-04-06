@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from './react-redux-hooks';
 import { Col, Row, Rate, Button, Spin } from 'antd';
-import Popup from './Popup';
+import MoviePopup from './MoviePopup';
 import { showMoviePopup, deleteMovieFromList, getMovieDetailById } from '../actions/actionCreators';
 import { useHistory } from 'react-router-dom';
 
@@ -52,7 +52,7 @@ const MovieDetail = (props) => {
           </div>
         </Col>
       </Row> : <Spin size="large"/>}
-      {popupShown ? <Popup movie={movies} /> : null}
+      {popupShown ? <MoviePopup movie={movies} /> : null}
     </div>
   )
 }

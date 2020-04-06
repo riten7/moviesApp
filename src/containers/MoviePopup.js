@@ -35,7 +35,6 @@ const MoviePopup = (props) => {
   };
   
   const handleSubmit = useCallback((values) => {
-    console.log('ahsg', values);
     if (!props.movie) { values.id = getMovieId(); }
     values.date = values.date.format('YYYY/MM/DD');
     props.movie ? dispatch(updateMovieInList(props.movie.id, values)) : dispatch(addMovieToList(values));
@@ -77,7 +76,7 @@ const MoviePopup = (props) => {
             <Option value="5">5</Option>
           </Select>
         </Form.Item>
-        <Form.Item id="date" name="rrrr" label="Released On"
+        <Form.Item name="date" label="Released On"
           rules={[{ required: true }]}>
           <DatePicker />
         </Form.Item>

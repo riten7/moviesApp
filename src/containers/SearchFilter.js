@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchText, showMoviePopup } from '../actions/actionCreators';
-import Popup from './Popup';
+import Popup from './MoviePopup';
 import { Col, Input, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
