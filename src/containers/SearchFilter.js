@@ -2,12 +2,11 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchText, addMovieToList } from '../actions/actionCreators';
 import MoviePopup from './MoviePopup';
-import { Col, Input, Button, Spin } from 'antd';
+import { Col, Input, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 const SearchFilter = () => {
   const [popupDisplay, setPopupDisplay] = useState(false);
-  const [loader, setLoader] = useState(false);
   const dispatch = useDispatch();
   const { status } = useSelector(state => state.movieList);
 
@@ -22,7 +21,6 @@ const SearchFilter = () => {
   }, [dispatch]);
 
   const submitMovie = (values) => {
-    setLoader(true);
     dispatch(addMovieToList(values));
   }
 
@@ -38,6 +36,7 @@ const SearchFilter = () => {
         </Col>
         <Col>
           <Button className="addMovieBtn" type="primary" onClick={setPopupState}><PlusOutlined /></Button>
+          <p>Add Movie</p>
         </Col>
       </div>
       {popupDisplay ?<MoviePopup

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Form, Input, Button, Select, DatePicker, Spin } from 'antd';
+import { Modal, Form, Input, Button, Select, DatePicker } from 'antd';
 import moment from 'moment';
 
 const layout = { labelCol: { span: 6 }, wrapperCol: {span: 16 },};
