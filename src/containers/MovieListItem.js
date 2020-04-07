@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Card } from 'antd';
 import { Link } from 'react-router-dom';
-import { PLACEHOLDER_IMG } from '../actions/Constant';
+import { PLACEHOLDER_IMG, isValidImageLink} from '../actions/Constant';
 
 const MovieListItem = ({ movie }) => {
   const { Meta } = Card;
@@ -12,7 +12,7 @@ const MovieListItem = ({ movie }) => {
         <Link to={{ pathname: `/movie/${movie.id}`}}>
         <Card hoverable
           style={{ width: 240 }}
-          cover={<img src={movie.poster ? movie.poster : PLACEHOLDER_IMG} className="card-img-top" alt={movie.title} />}>
+          cover={<img src={isValidImageLink(movie.poster) ? movie.poster : PLACEHOLDER_IMG} className="card-img-top" alt={movie.title} />}>
           <Meta title={movie.title} description={movie.type} />
         </Card>
         </Link>

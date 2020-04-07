@@ -5,6 +5,7 @@ import MoviePopup from './MoviePopup';
 import ConfirmationPoup from './ConfirmationPopup';
 import { deleteMovieFromList, getMovieDetailById, updateMovieInList } from '../actions/actionCreators';
 import { useHistory } from 'react-router-dom';
+import { PLACEHOLDER_IMG, isValidImageLink} from '../actions/Constant';
 
 const MovieDetail = (props) => {
   const movieId = props.match.params.id;
@@ -50,7 +51,7 @@ const MovieDetail = (props) => {
       {status === 'completed' ?
         <Row>
           <Col span={8}>
-            <img alt={movies.title} width='85%' src={movies.poster} />
+            <img alt={movies.title} width='85%' src={ isValidImageLink(movies.poster) ? movies.poster :PLACEHOLDER_IMG } />
           </Col>
           <Col span={12}>
             <h1>{movies.title}</h1>
