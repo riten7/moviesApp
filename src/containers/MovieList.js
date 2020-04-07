@@ -9,9 +9,9 @@ import { FileSearchOutlined } from '@ant-design/icons';
 
 const MovieList = () => {
   const dispatch = useDispatch();
-  const { movieData, searchBy } = useSelector(state => state);
-  const { movies, isLoading } = movieData;
-  const movieList = getFilteredList(movies, searchBy);
+  const { movies, status } = useSelector(state => state.movieList);
+  const {type, text} = useSelector(state => state.searchBy);
+  const movieList = getFilteredList(movies, type, text);
 
   React.useEffect(() => {
     dispatch(fetchMovieList());
@@ -25,7 +25,7 @@ const MovieList = () => {
       <Row className="movieSearch">
         <SearchFilter />
       </Row>
-      {!isLoading ?
+      {status === 'completed' ?
         <Row className="movieList">
           {movieList && movieList.length > 0 ? movieList.map(item => (
             <MovieListItem key={item._id} movie={item} />

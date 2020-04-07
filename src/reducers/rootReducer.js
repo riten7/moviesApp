@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import movieData from './moviesReducer';
+import movieList from './moviesListReducer';
+import movieActions from './movieActionReducer';
 import searchBy from './searchReducer';
-import popupShown from './popupReducer';
 
 export default combineReducers({
-  movieData, 
-  searchBy,
-  popupShown
+  movieList,
+  movieActions,
+  searchBy
 });

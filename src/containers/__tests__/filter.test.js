@@ -5,11 +5,11 @@ import { getFilteredList } from '../filter';
 
 describe("filter works correctly", () => {
   it("with no search text",  () => {
-    const list = getFilteredList(movies, { type:SHOW_ALL, text:'' });
+    const list = getFilteredList(movies, SHOW_ALL, '' );
     expect(list).toEqual(movies);
   })
   it("with some text on the seach field", () => {
-    const list = getFilteredList(movies, { type:SEARCH_FILTER, text:'est Case' });
+    const list = getFilteredList(movies, SEARCH_FILTER, 'est Case' );
     expect(list).toEqual([movie]);
   });
 });

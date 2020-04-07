@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import Popup from "../MoviePopup";
+import MoviePopup from "../MoviePopup";
 import configureStore from "redux-mock-store";
 import thunk from 'redux-thunk';
 import * as ReactReduxHooks from "../react-redux-hooks";
@@ -22,28 +22,21 @@ describe("Component renders properly", () => {
   let store;
   let wrapper;
    beforeEach(() => {
-    /* mocking store */
     store = configureStore([thunk])(data);
-
-    /* mocking useSelector on our mock store */
     jest
       .spyOn(ReactReduxHooks, "useSelector")
       .mockImplementation(state => store.getState());
-
-    /* mocking useDispatch on our mock store  */
     jest
       .spyOn(ReactReduxHooks, "useDispatch")
       .mockImplementation(() => store.dispatch);  /* shallow rendering */
   });
 
   it("Test SearchFilter Component works", () => {
-    wrapper = mount(<Provider store={store}><Popup/></Provider>);
+    const setPopupState= jest.fn();
+    const handleSubmit = jest.fn();
+    wrapper = mount(<Provider store={store}><MoviePopup setPopupState={setPopupState}/></Provider>);
     expect(wrapper.html()).toMatchSnapshot();
 
-    wrapper.find('.ant-modal-close').simulate('click');
-    expect(store.getActions()).toEqual( [{"payload": {"isShown": false}, "type": "POPUP_SHOWN"}])
-
-    const handleSubmit = jest.fn();
     wrapper.find('.ant-btn-primary').simulate('click');
     expect(handleSubmit).not.toHaveBeenCalled();
 

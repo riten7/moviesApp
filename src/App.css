@@ -76,7 +76,8 @@ body {
 
 .movieSearch .addMovieBtn,
 .movieDetail .editMovieBtn,
-.movieDetail .deleteMovieBtn {
+.movieDetail .deleteMovieBtn,
+.movieDetail .goBackBtn {
   background-color: #708b16;
   color: #f2e9e1;
   border-radius: 0.5em;
@@ -113,7 +114,7 @@ body {
   max-width: 82%;
   margin: 0 auto;
   padding: 50px 0px;
-  /* justify-content: center; */
+  justify-content: center;
 }
 .movieList .ant-col {
   width: auto;
@@ -165,4 +166,7 @@ body {
   border: none;
   margin-top: 20px;
   padding: 0 30px;
+}
+.ant-card-cover img {
+    height: 300px;
 }

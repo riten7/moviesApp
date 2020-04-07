@@ -1,21 +1,16 @@
-import React, { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { showMoviePopup, addMovieToList, updateMovieInList } from '../actions/actionCreators';
-import { Modal, Form, Input, Button, Select, DatePicker } from 'antd';
+import React from 'react';
+import { Modal, Form, Input, Button, Select, DatePicker, Spin } from 'antd';
 import moment from 'moment';
 
 const layout = { labelCol: { span: 6 }, wrapperCol: {span: 16 },};
 const tailLayout = { wrapperCol: { offset: 16 }};
 
-const MoviePopup = (props) => { 
+const MoviePopup = (props) => {
   const [form] = Form.useForm();
   const { Option } = Select;
   const { TextArea } = Input;
-  const dispatch = useDispatch();
-  const {popupShown, movieData} = useSelector(state => state);
-  const {isLoading} = movieData;
   
-  const closePopup = () => (dispatch(showMoviePopup(false)));
+  const closePopup = () => props.setPopupState(false);
 
   const getInitialValues = () => {
     if (props.movie) {
@@ -34,20 +29,16 @@ const MoviePopup = (props) => {
     form.resetFields();
   };
   
-  const handleSubmit = useCallback((values) => {
-    if (!props.movie) { values.id = getMovieId(); }
+  const handleSubmit = (values) => {
     values.date = values.date.format('YYYY/MM/DD');
-    props.movie ? dispatch(updateMovieInList(props.movie.id, values)) : dispatch(addMovieToList(values));
-    if (!isLoading) {
-      dispatch(showMoviePopup(false));
-    }
-  }, [dispatch, isLoading, props.movie]);
-
-  const getMovieId = () => (Math.random().toString(36).replace('0.', ''));
+    props.submitMovie(values);
+    closePopup();
+  };
 
   return (
+    <>
     <Modal
-      visible={popupShown}
+      visible={true}
       title= {props.movie ? 'Edit Movie' : 'Add Movie'}
       onCancel={closePopup}
       footer={null}
@@ -94,6 +85,7 @@ const MoviePopup = (props) => {
         </Form.Item>
       </Form>
     </Modal>
+    </>
   )
 }
 

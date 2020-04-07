@@ -1,6 +1,6 @@
 {
-  "movieData": {
-    "isLoading": false,
+  "movieList": {
+    "status": "completed",
     "movies": [
       {
         "_id": "5e8070706eb3ec0e2f36712b",
@@ -51,12 +51,10 @@
         "description": "asdadasdasd",
         "id": "77d0a8e3ksq"
       }
-    ],
-    "hasError": false
+    ]
   },
   "searchBy": {
     "type": "SHOW_ALL",
     "text": ""
-  },
-  "popupShown": true
+  }
 }
